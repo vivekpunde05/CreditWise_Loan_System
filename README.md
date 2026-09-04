@@ -238,7 +238,13 @@ The pipeline relies on the following core scientific computing and machine learn
 
 ---
 
-## 📄 License
+## � Author
+
+**Vivek Punde**
+
+---
+
+## �📄 License
 
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 #
