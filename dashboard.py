@@ -145,10 +145,87 @@ section[data-testid="stSidebar"] { background: #070d1a !important; border-right:
 [data-baseweb="tab"] { border-radius: 8px !important; color: #64748b !important; font-weight: 600 !important; }
 [aria-selected="true"][data-baseweb="tab"] { background: #1e3a5f !important; color: #60a5fa !important; }
 
-/* ── Inputs ── */
+/* ── All widget labels ── */
+label, .stSlider label, .stSelectbox label, .stMultiSelect label,
+.stNumberInput label, .stTextInput label, .stRadio label,
+[data-testid="stWidgetLabel"], [data-testid="stWidgetLabel"] p,
+[data-testid="stWidgetLabel"] span,
+div[data-testid="stSlider"] label,
+div[data-testid="stSelectbox"] label,
+div[data-testid="stMultiSelect"] label,
+div[data-testid="stNumberInput"] label,
+div[data-testid="stTextInput"] label {
+  color: #cbd5e1 !important; font-size: .82rem !important;
+  font-weight: 600 !important; letter-spacing: .01em !important;
+}
+
+/* ── Selectbox / multiselect displayed value ── */
+[data-baseweb="select"] [data-testid="stMarkdownContainer"] p,
+[data-baseweb="select"] span,
+[data-baseweb="select"] div { color: #e2e8f0 !important; }
+[data-baseweb="select"] { background: #0d1b2e !important; border-color: #1e3a5f !important; }
+[data-baseweb="select"] > div { background: #0d1b2e !important; border-color: #1e3a5f !important; }
+
+/* ── Dropdown menu items ── */
+[data-baseweb="popover"] li, [data-baseweb="menu"] li,
+[role="option"] { color: #e2e8f0 !important; background: #0d1b2e !important; }
+[role="option"]:hover { background: #1e3a5f !important; }
+
+/* ── Multiselect tags ── */
+[data-baseweb="tag"] { background: #1e3a5f !important; }
+[data-baseweb="tag"] span { color: #93c5fd !important; }
+
+/* ── Number input ── */
+[data-testid="stNumberInput"] input { background: #0d1b2e !important;
+  border-color: #1e3a5f !important; color: #e2e8f0 !important; }
+
+/* ── Text input ── */
+[data-testid="stTextInput"] input { background: #0d1b2e !important;
+  border-color: #1e3a5f !important; color: #e2e8f0 !important; }
+
+/* ── Slider track & thumb ── */
 [data-testid="stSlider"] > div > div > div { background: #1a56db !important; }
-[data-baseweb="select"] { background: #0a1628 !important; border-color: #1e3a5f !important; }
-[data-testid="stTextInput"] input { background: #0a1628 !important; border-color: #1e3a5f !important; color: #e2e8f0 !important; }
+[data-testid="stSlider"] [data-testid="stTickBarMin"],
+[data-testid="stSlider"] [data-testid="stTickBarMax"] { color: #64748b !important; }
+
+/* ── Slider current value text ── */
+[data-testid="stSlider"] p { color: #94a3b8 !important; }
+
+/* ── Radio button labels ── */
+[data-testid="stRadio"] div[role="radio"] p,
+[data-testid="stRadio"] label p { color: #cbd5e1 !important; }
+
+/* ── Toggle label ── */
+[data-testid="stToggle"] p,
+[data-testid="stToggle"] label { color: #cbd5e1 !important; }
+
+/* ── Expander header ── */
+[data-testid="stExpander"] summary p,
+[data-testid="stExpander"] summary svg { color: #cbd5e1 !important; fill: #cbd5e1 !important; }
+[data-testid="stExpander"] { border-color: #1e3a5f !important;
+  background: #070d1a !important; border-radius: 12px !important; }
+
+/* ── st.metric ── */
+[data-testid="stMetric"] label { color: #94a3b8 !important; font-size: .75rem !important; }
+[data-testid="stMetricValue"] { color: #f1f5f9 !important; }
+[data-testid="stMetricDelta"] { color: #22c55e !important; }
+
+/* ── Tabs ── */
+[data-baseweb="tab-list"] { background: #0a1628 !important; border-radius: 12px; padding: 4px; gap: 4px; }
+[data-baseweb="tab"] { border-radius: 8px !important; color: #94a3b8 !important; font-weight: 600 !important; }
+[aria-selected="true"][data-baseweb="tab"] { background: #1e3a5f !important; color: #60a5fa !important; }
+[data-baseweb="tab"] p { color: inherit !important; }
+
+/* ── Dataframe text ── */
+[data-testid="stDataFrame"] { border-radius: 12px; overflow: hidden; }
+
+/* ── Download button ── */
+[data-testid="stDownloadButton"] button { background: #0d1b2e !important;
+  border: 1px solid #1e3a5f !important; color: #93c5fd !important; border-radius: 8px !important; }
+
+/* ── Caption / markdown text ── */
+[data-testid="stCaptionContainer"] p { color: #64748b !important; }
+p { color: #cbd5e1; }
 
 /* ── Divider ── */
 hr { border-color: #1e3a5f !important; }
