@@ -182,6 +182,25 @@ CreditWise Loan System/
 
 ---
 
+## 🖼️ Dashboard Screenshots
+
+### 1. Executive Dashboard
+![Executive Dashboard](Screenshot%202026-09-06%20224326.png)
+
+### 2. AI Loan Predictor
+![AI Loan Predictor](Screenshot%202026-09-06%20224423.png)
+
+### 3. Model Intelligence
+![Model Intelligence](Screenshot%202026-09-06%20224454.png)
+
+### 4. Applicant Explorer
+![Applicant Explorer](Screenshot%202026-09-06%20224526.png)
+
+### 5. Dashboard Overview
+![Dashboard Overview](Screenshot%202026-09-06%20224543.png)
+
+---
+
 ## 💻 Getting Started
 
 ### Prerequisites
