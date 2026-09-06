@@ -56,10 +56,79 @@ html, body, [class*="css"] {
     color: #eef5ff !important;
 }
 
-[data-testid="stSidebar"] .stRadio label {
-    padding: 9px 8px;
-    border-radius: 9px;
+/* ── Sidebar file uploader — kill white background ── */
+[data-testid="stSidebar"] [data-testid="stFileUploader"],
+[data-testid="stSidebar"] [data-testid="stFileUploader"] > div,
+[data-testid="stSidebar"] [data-testid="stFileUploader"] section,
+[data-testid="stSidebar"] [data-testid="stFileUploaderDropzone"] {
+    background: rgba(255,255,255,0.06) !important;
+    border: 1px dashed rgba(255,255,255,0.15) !important;
+    border-radius: 10px !important;
 }
+[data-testid="stSidebar"] [data-testid="stFileUploader"] *,
+[data-testid="stSidebar"] [data-testid="stFileUploaderDropzone"] * {
+    color: #a9bdd6 !important;
+}
+[data-testid="stSidebar"] [data-testid="stFileUploader"] button {
+    background: rgba(255,255,255,0.10) !important;
+    border: 1px solid rgba(255,255,255,0.18) !important;
+    color: #e2e8f0 !important;
+    border-radius: 7px !important;
+}
+[data-testid="stSidebar"] [data-testid="stFileUploader"] small {
+    color: #6b8aaa !important;
+}
+
+/* ── Sidebar success / info / warning boxes ── */
+[data-testid="stSidebar"] [data-testid="stAlert"],
+[data-testid="stSidebar"] .stAlert,
+[data-testid="stSidebar"] [data-testid="stNotification"] {
+    background: rgba(22,163,106,0.15) !important;
+    border: 1px solid rgba(22,163,106,0.30) !important;
+    border-radius: 10px !important;
+    color: #6ee7b7 !important;
+}
+[data-testid="stSidebar"] [data-testid="stAlert"] *,
+[data-testid="stSidebar"] .stAlert * {
+    color: #6ee7b7 !important;
+}
+
+/* ── System status chips ── */
+.info-chip {
+    display: inline-block;
+    background: rgba(255,255,255,0.08) !important;
+    color: #6ee7b7 !important;
+    border: 1px solid rgba(110,231,183,0.25) !important;
+    border-radius: 999px;
+    padding: 5px 11px;
+    font-size: 11px;
+    font-weight: 700;
+    margin: 3px 3px 3px 0;
+}
+
+/* ── Sidebar caption text ── */
+[data-testid="stSidebar"] [data-testid="stCaptionContainer"] p {
+    color: #6b8aaa !important;
+    font-size: 10px !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+}
+
+/* ── Sidebar radio label (WORKSPACE heading) ── */
+[data-testid="stSidebar"] .stRadio > label {
+    color: #6b8aaa !important;
+    font-size: 10px !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+}
+
+/* ── Sidebar divider ── */
+[data-testid="stSidebar"] hr {
+    border-color: rgba(255,255,255,0.08) !important;
+}
+
 
 .brand {
     padding: 8px 0 20px 0;
@@ -436,13 +505,25 @@ with st.sidebar:
 
     uploaded = st.file_uploader(
         "Upload loan dataset",
-        type=["csv"],
-        help="Upload a CSV containing the Loan_Approved target column."
+        type=["csv", "pdf"],
+        help="Upload a CSV for analysis, or drag a PDF report to preview it."
     )
 
     if uploaded is not None:
-        raw_df = pd.read_csv(uploaded)
-        st.success("Dataset uploaded")
+        if uploaded.name.endswith(".pdf"):
+            import base64
+            pdf_bytes = uploaded.read()
+            b64 = base64.b64encode(pdf_bytes).decode("utf-8")
+            st.markdown(
+                f'<iframe src="data:application/pdf;base64,{b64}" '
+                f'width="100%" height="400px" style="border:none;border-radius:10px;'
+                f'background:#0b1f3a"></iframe>',
+                unsafe_allow_html=True
+            )
+            raw_df = None
+        else:
+            raw_df = pd.read_csv(uploaded)
+            st.success("Dataset uploaded")
     else:
         try:
             raw_df = pd.read_csv("loan_approval_data.csv")
@@ -477,7 +558,7 @@ with st.sidebar:
 # =========================================================
 # EMPTY STATE
 # =========================================================
-if raw_df is None:
+if raw_df is None and (uploaded is None or not uploaded.name.endswith(".pdf")):
     st.markdown("""
     <div class="hero">
         <div class="hero-badge">CREDITWISE AI</div>
