@@ -334,7 +334,6 @@ def encode_target(df):
     }
 
     encoded = raw.map(mapping)
-
     if encoded.isna().any():
         numeric = pd.to_numeric(df["Loan_Approved"], errors="coerce")
         if numeric.notna().all() and numeric.isin([0, 1]).all():
