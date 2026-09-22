@@ -19,7 +19,6 @@ from sklearn.metrics import (
 )
 
 # PAGE CONFIG
-
 st.set_page_config(
     page_title="CreditWise AI | Loan Intelligence",
     page_icon="💳",
