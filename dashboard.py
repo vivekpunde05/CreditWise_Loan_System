@@ -15,7 +15,6 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import (
     accuracy_score, precision_score, recall_score, f1_score,
     confusion_matrix, roc_auc_score
-    
 )
 
 # PAGE CONFIG
