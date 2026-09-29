@@ -39,7 +39,6 @@ Evaluating loan applications manually is time-consuming, prone to human bias, an
 ---
 
 ## 🔄 System Architecture & Workflow
-
 ```mermaid
 flowchart TD
     A[Raw Loan Data: loan_approval_data.csv] --> B[Data Preprocessing]
