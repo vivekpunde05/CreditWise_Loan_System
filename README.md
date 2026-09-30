@@ -136,7 +136,6 @@ To capture non-linear relationships without expanding model complexity excessive
 4. **Standardization**: All features transformed using `StandardScaler` to ensure zero mean and unit variance for distance-sensitive algorithms.
 
 ---
-
 ## 📈 Model Evaluation & Benchmarking
 
 All models were evaluated on a held-out test split (20%, $N=200$) using **Precision**, **Recall**, **F1-Score**, **Accuracy**, and **Confusion Matrix analysis**.
